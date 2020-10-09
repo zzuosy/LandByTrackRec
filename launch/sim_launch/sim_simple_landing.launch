@@ -1,0 +1,10 @@
+<launch> 
+	<node pkg="landing" type="simple_landing_node" name="simple_landing_node" output="screen">
+        </node> 
+	<node pkg="landing" type="keyboard.py" name="keyboard"  />
+	<node pkg="landing" type="track640.py" name="track"  >
+	    <param name="is_sim" type="int" value="1"/>
+	</node>	
+        <rosparam file="$(find landing)/config/config.yaml" command="load" />
+</launch>
+

@@ -1,0 +1,21 @@
+<launch>
+  <arg name="config_path" default="$(find landing)/config/" doc="this is a config path" />
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+    <param name="video_device" value="/dev/video0" />
+    <param name="framerate" value="60"/>
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="/usb_cam" />
+  <node pkg="landing" type="keyboard.py" name="keyboard"  />
+  <node pkg="landing" type="tracking_node" name="track" output="screen">
+    <param name="is_sim" type="bool" value="true"/>
+    <param name="is_plot" type="bool" value="true"/>
+    <param name="image_topic_raw_sim" type="string" value="/iris/usb_cam/image_raw"/>
+    <param name="image_topic_raw_real" type="string" value="/usb_cam/image_raw"/>
+    <param name="image_topic_raw_calib" type="string" value="/usb_cam/image_rect_color"/>
+    <param name="camera_info_path" value="$(arg config_path)/camera_info_usb.yaml" />
+  </node>	
+</launch>

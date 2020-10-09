@@ -1,0 +1,21 @@
+<launch>
+  <arg name="config_path" default="$(find landing)/config/" doc="this is a config path" />
+  <arg name="pose_topic" default="/mav_local_position"/>
+  <arg name="is_sim" default="false"/>
+  <arg name="is_plot" default="false"/>
+   <arg name="image_topic_raw_sim" default="/iris/usb_cam/image_raw"/>
+    <arg name="image_topic_raw_real"  default="/usb_cam/image_raw"/>
+    <arg name="image_topic_raw_calib" default="/usb_cam/image_rect_color"/>
+    <arg name="camera_info_path" default="$(arg config_path)/camera_info_usb.yaml" />
+    <arg name="marker_size" default="0.845"/>
+  <node pkg="landing" type="tracking_node" name="track" output="screen">
+    <param name="is_sim" type="bool" value="$(arg is_sim)"/>
+    <param name="is_plot" type="bool" value="$(arg is_plot)"/>
+    <param name="image_topic_raw_sim" type="string" value="$(arg image_topic_raw_sim)"/>
+    <param name="image_topic_raw_real" type="string" value="$(arg image_topic_raw_real)"/>
+    <param name="image_topic_raw_calib" type="string" value="$(arg image_topic_raw_calib)"/>
+    <param name="camera_info_path" value="$(arg camera_info_path)" />
+     <param name="pose_pub_topic" value="$(arg pose_topic)" />
+     <param name="marker_size" type="double" value="$(arg marker_size)"/>
+  </node>	
+</launch>

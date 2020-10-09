@@ -1,0 +1,32 @@
+#There are some params which will be loaded
+
+### perception options
+# if show image 0:hide 1:show
+b_isplot: 1
+n_bias_pixel: 100
+n_thres_clustering: 20
+
+### control params
+#vel pid param
+kp_pixelx: 400.
+kp_pixely: 400.
+
+# state param
+min_err_pixel_x: 20
+min_err_pixel_y: 20
+
+min_landing_height: 0.15
+near_landing_height: 0.4
+min_tf_height: 0.4
+max_height: 2.0
+
+
+# control value
+decend_vel_far: 0.2
+decend_vel_near: 0.2
+
+
+# pid param in relative pose
+kp_x: 5.
+kp_y: 5.
+

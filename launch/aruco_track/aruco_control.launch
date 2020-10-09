@@ -1,0 +1,8 @@
+<launch>
+  <rosparam file="$(find landing)/config/config.yaml" command="load"  />
+  <arg name="pose_topic" default="/mav_local_position"/>
+  <node pkg="landing" type="landing_pose_node" name="lading_pose" output="screen">
+    <param name="pose_pub_topic" type="string" value="$(arg pose_topic)"/>
+  </node>	
+	<node pkg="landing" type="keyboard.py" name="keyboard"  />
+</launch>

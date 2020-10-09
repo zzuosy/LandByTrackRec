@@ -1,0 +1,15 @@
+<launch>
+    
+    <arg name="pose_topic" value="/mav_local_position"/>
+    <arg name="config_path" default="$(find landing)/config/" doc="this is a config path" />
+    <include file="$(find landing)/launch/aruco_track/aruco_control.launch">
+        <arg name="pose_topic" value="$(arg pose_topic)"/>
+    </include>
+    <include file="$(find landing)/launch/aruco_track/aruco_tracking.launch">
+        <arg name="pose_topic" value="$(arg pose_topic)"/>
+        <arg name="camera_info_path" value="$(arg config_path)/camera_info_usb.yaml" />
+        <arg name="is_sim" value="true"/>
+        <arg name="is_plot" value="true"/>
+        <arg name="marker_size" value="0.9"/>
+    </include>
+</launch>
