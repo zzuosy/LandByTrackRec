@@ -1,0 +1,86 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='fpv_cam'>
+    <pose>-0.158979 -0.04405 0.045074 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>0.015</mass>
+          <inertia>
+            <ixx>4.15e-6</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.407e-6</iyy>
+          <iyz>0</iyz>
+          <izz>2.407e-6</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.01 0.01 0.01</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.01 0.01 0.01</size>
+            </box>
+          </geometry>
+        </visual>
+        <sensor name='camera' type='camera'>
+          <camera name='__default__'>
+            <horizontal_fov>1.7453</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.001</stddev>
+          </noise>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30</update_rate>
+          <visualize>1</visualize>
+          <plugin name='camera_plugin' filename='libgazebo_ros_camera.so'>
+              <robotNamespace></robotNamespace>
+            <alwaysOn>true</alwaysOn>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <updateRate>30.0</updateRate>
+            <cameraName>usb_cam</cameraName>
+            <frameName>/robot_camera_link</frameName>
+            <CxPrime>320.5</CxPrime>
+            <Cx>282.5038900011352</Cx>
+            <Cy>212.2799732758863</Cy>
+            <hackBaseline>0</hackBaseline>
+            <focalLength>592.981217466603</focalLength>
+            <distortionK1>-0.4366727867512146</distortionK1>
+            <distortionK2>0.2057313607448225</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.001746426297464726</distortionT1>
+            <distortionT2>0.01872583732211049</distortionT2>
+          </plugin>
+        </sensor>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+  </model>
+</sdf>
