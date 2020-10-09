@@ -3,8 +3,10 @@
 https://blog.csdn.net/u013083665/article/details/104840286
 
 ## CorrectImgFrom320To640:
-cd Firmware/Tools/sitl_gazebo/models/fpv_cam <br>
-use fpv_cam.sdf in this repository to replace the inital fpv_cam.sdf
+cd LandByTrackRect <br>
+mv fpv_cam.sdf ~/Firmware/Tools/sitl_gazebo/models/fpv_cam
 
 ## AddMark:
-move the landmark/apriltag/arucotag to ~/Firmware/Tools/sitl_gazebo/models/
+mv apriltag ~/Firmware/Tools/sitl_gazebo/models <br>
+mv arucotag ~/Firmware/Tools/sitl_gazebo/models <br>
+mv landmark ~/Firmware/Tools/sitl_gazebo/models <br>
