@@ -7,7 +7,10 @@ https://blog.csdn.net/u013083665/article/details/104840286
 $ cd LandByTrackRect  
 $ mv fpv_cam.sdf ~/Firmware/Tools/sitl_gazebo/models/fpv_cam
 ```
-
+## AddIris:
+'''
+$ mv iris.sdf ~/Firmware/Tools/sitl_gazebo/models/fpv_cam
+```
 ## AddMark:
 ```
 $ mv apriltag ~/Firmware/Tools/sitl_gazebo/models  
