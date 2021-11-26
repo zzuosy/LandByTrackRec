@@ -10,7 +10,7 @@ $ mv fpv_cam.sdf ~/Firmware/Tools/sitl_gazebo/models/fpv_cam
 ## AddIris_fpv_cam(include tfmini plugin):
 ```
 $ mv iris.sdf ~/Firmware/Tools/sitl_gazebo/models/iris
-$ mv iris_fpv_cam ~/Firmware/Tools/sitl_gazebo/models/iris_fpv_cam
+$ mv iris_fpv_cam.sdf ~/Firmware/Tools/sitl_gazebo/models/iris_fpv_cam
 ```
 ## AddMark:
 ```
